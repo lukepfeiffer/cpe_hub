@@ -1,0 +1,23 @@
+%header.navigation{:role => "banner"}
+  .navigation-wrapper
+    %a.logo{:href => "javascript:void(0)"}
+      %img{:alt => "Logo Image", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png"}/
+    %a#js-mobile-menu.navigation-menu-button{:href => "javascript:void(0)"} MENU
+    %nav{:role => "navigation"}
+      %ul#js-navigation-menu.navigation-menu.show
+        %li#js-navigation-more.nav-link.more
+          %a{href: "javascript:void(0)"} Courses
+          %ul.submenu
+            %li= link_to "Core", root_path
+            %li= link_to "Tech", root_path
+            %li= link_to "Breadth", root_path
+        %li.nav-link= link_to "Discussions", root_path
+        %li.nav-link= link_to "FAQ", root_path
+        %li.nav-link= link_to "Sign up", root_path
+    .navigation-tools
+      .search-bar
+        %form{:role => "search"}
+          %input{:placeholder => "Enter Search", :type => "search"}/
+          %button{:type => "submit"}
+            %img{:alt => "Search Icon", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png"}/
+
