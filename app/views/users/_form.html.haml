@@ -1,0 +1,16 @@
+= form_for user do |f|
+  %fieldset
+    %dl
+      %dt= f.label :email
+      %dd= f.text_field :email
+
+      %dt= f.label :username
+      %dd= f.text_field :username
+
+      %dt= f.label :password
+      %dd= f.password_field :password
+
+      %dt= f.label :password_confirmation
+      %dd= f.password_field :password_confirmation
+  %fieldset.actions
+    = f.submit "Save"
