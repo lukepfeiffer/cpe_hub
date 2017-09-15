@@ -30,6 +30,20 @@ module CpeHub
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.raise_delivery_errors = true
+
+    config.action_mailer.smtp_settings = {
+      address:              ENV["EMAIL_ADDRESS"],
+      port:                 587,
+      domain:               ENV["EMAIL_DOMAIN"],
+      user_name:            ENV["EMAIL_USERNAME"],
+      password:             ENV["EMAIL_PASSWORD"],
+      authentication:       :plain,
+      enable_starttls_auto: true
+    }
+
     config.active_record.raise_in_transactional_callbacks = true
   end
 end

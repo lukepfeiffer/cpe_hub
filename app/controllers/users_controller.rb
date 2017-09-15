@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
+      UserMailer.confirmation(user).deliver_now
       flash[:success] = "Signed up! Check your email to confirm account."
       redirect_to root_path
     else
