@@ -3,6 +3,7 @@ ruby '2.3.3'
 gem 'rails', '4.2.2'
 
 gem 'adequate_exposure'
+gem 'authem'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'bourbon', "~> 4.2.0"
 gem 'bitters', '~> 1.2.0'
