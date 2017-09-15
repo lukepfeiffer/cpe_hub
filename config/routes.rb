@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   end
 
   get "/log_in", to: "pages#log_in"
+
+  post '/log_in', to: 'sessions#create'
 end
