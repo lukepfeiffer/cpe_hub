@@ -14,6 +14,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def confirm_email
+    user = User.find_by_confirm_token(params[:id])
+    if user
+      user.email_activate
+      flash[:success] = "Email was confirmed, sign in!"
+      redirect_to log_in_path
+    else
+      flash[:danger] = "Unable to find matching user..."
+      redirect_to root_path
+    end
+  end
+
+
   private
 
   def user_params
