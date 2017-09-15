@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
+    user.access_level = 1
     if user.save
       UserMailer.confirmation(user).deliver_now
       flash[:success] = "Signed up! Check your email to confirm account."
