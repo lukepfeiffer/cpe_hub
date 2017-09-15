@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
+  resources :faqs
   resources :users do
     member do
       get :confirm_email

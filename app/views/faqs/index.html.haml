@@ -1,0 +1,7 @@
+%h1 FAQ
+
+.faqs
+  - faqs.each do |faq|
+    .faq
+      %h1.question= faq.question
+      %p.answer= faq.answer
