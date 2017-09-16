@@ -1,7 +1,11 @@
-%h1 FAQ
+%h1.large Frequently Asked Questions
 
-.faqs
+%ul.bullets.faqs
   - faqs.each do |faq|
     .faq
-      %h1.question= faq.question
-      %p.answer= faq.answer
+      .faq-image
+        %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png"}/
+      .faq-content
+        %h1.question= faq.question
+        %p.answer= faq.answer
+        %p.faq-detail= "Last updated #{faq.updated_at.strftime("%B %d, %Y")}"

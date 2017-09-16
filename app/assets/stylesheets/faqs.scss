@@ -3,3 +3,69 @@
     display: none;
   }
 }
+
+.faq {
+  $base-border-radius: 3px !default;
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
+  $dark-gray: #333 !default;
+  $base-font-color: $dark-gray !default;
+  $faq-gutter: 1.4em;
+  $faq-image-padding: 0.7em;
+  $faq-image-width: 4em;
+  $faq-color: $base-font-color;
+  $faq-background: lighten($action-color, 15%);
+  $faq-detail-color: transparentize($faq-color, 0.5);
+  $faq-image-vert-alignment: top;
+
+  border-bottom: 1px solid transparentize($faq-color, 0.9);
+  display: table;
+  margin-bottom: $base-spacing;
+  padding-bottom: 1em;
+  width: 100%;
+
+  .faq-image,
+  .faq-content {
+    display: table-cell;
+    vertical-align: $faq-image-vert-alignment;
+  }
+
+  .faq-image {
+    padding-right: $faq-gutter;
+
+    > img {
+      background: $faq-background;
+      border-radius: $base-border-radius;
+      display: block;
+      height: auto;
+      max-width: none;
+      padding: $faq-image-padding;
+      width: $faq-image-width;
+    }
+
+    .faq-reverse-order & {
+      padding-left: 10px;
+      padding-right: 0;
+    }
+  }
+
+  .faq-content {
+    width: 100%;
+
+    h1 {
+      font-size: 1em;
+      margin: 0 0 0.5em 0;
+    }
+
+    p {
+      line-height: 1.5em;
+      margin-bottom: 0.5em;
+    }
+
+    p.faq-detail {
+      color: $faq-detail-color;
+      font-size: 0.9em;
+      font-style: italic;
+    }
+  }
+}
