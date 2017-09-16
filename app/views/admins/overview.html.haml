@@ -1,0 +1,12 @@
+%h1 Overview
+= link_to "Create FAQ", new_faq_path
+
+.panel.primary
+  .panel-header
+    %h1 FAQS
+  .panel-body
+    .faqs
+      - faqs.each do |faq|
+        .faq
+          %p= link_to faq.question, faq_path(faq.id)
+          %p= faq.answer

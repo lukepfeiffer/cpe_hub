@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
   validates_presence_of :email, :username
   validates_uniqueness_of :username
 
+  def access_rights?(min_level)
+    access_level >= min_level
+  end
+
   def email_activate
     self.confirmed_email = true
     self.confirm_token = nil

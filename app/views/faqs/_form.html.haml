@@ -1,0 +1,11 @@
+= form_for faq do |f|
+  %fieldset
+    %dl
+      %dt= f.label :question
+      %dd= f.text_area :question
+
+      %dt= f.label :answer
+      %dd= f.trix_editor :answer, id: "faq_editor"
+
+  %fieldset.actions
+    = f.submit "Save"

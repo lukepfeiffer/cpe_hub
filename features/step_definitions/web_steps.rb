@@ -1,9 +1,22 @@
+Given /^I am signed in as an admin$/ do
+  # Must have admin in database!!!
+  visit log_in_path
+  fill_in 'sign_in_email', with: "admin@example.com"
+  fill_in 'sign_in_password', with: "password"
+  fill_in 'sign_in_password', with: "password"
+  click_button 'Sign In'
+end
+
 When /^I check "(.+)"$/ do |selector|
   check(selector)
 end
 
 When /^I fill in the trix editor with id of "(.+)" with "(.+)"$/ do |id, value|
-  find(:xpath, "//*[@id='#{id}']", visible: false).set(value)
+  if Faq.last.present?
+    find("#{id}_#{Faq.last.id}", visible: false).set(value)
+  else
+    find(id, visible: false).set(value)
+  end
 end
 
 When /^I click link with "(.+)" class$/ do |selector|

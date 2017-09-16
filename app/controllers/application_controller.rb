@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  helper_method :authenticate_superuser
+  helper_method :authenticate_admin
+  helper_method :authenticate_user
+
   authem_for :user
 
   def authenticate_user
@@ -18,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def valid_access_level(min_level)
     if current_user.nil? || current_user.access_level < min_level
-      flash[:message] = "You do not have access for that action."
+      flash[:danger] = "You do not have access for that action."
       redirect_to root_path
     end
   end
