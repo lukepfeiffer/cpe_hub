@@ -19,41 +19,162 @@ puts "Creating faqs"
 end
 
 puts "Creating core courses"
-6.times do |n|
+10.times do |n|
   description = Faker::Lorem.paragraph
   Course.create(
     name: Faker::Company.catch_phrase,
-    course_code: "COR111#{n+1}",
+    course_code: "COP111#{n+1}",
     course_type: "Core",
-    difficulty: "#{10-n}",
+    difficulty: rand(1..10),
     description: "<div> #{description} </div>",
-    desc_preview: description.truncate(100)
+    desc_preview: description.truncate(80)
+  )
+end
+
+7.times do |n|
+  description = Faker::Lorem.paragraph
+  Course.create(
+    name: Faker::Company.catch_phrase,
+    course_code: "EEL111#{n+1}",
+    course_type: "Core",
+    difficulty: rand(1..10),
+    description: "<div> #{description} </div>",
+    desc_preview: description.truncate(80)
   )
 end
 
 puts "Creating breadth courses"
-6.times do |n|
+5.times do |n|
   description = Faker::Lorem.paragraph
   Course.create(
     name: Faker::Company.catch_phrase,
-    course_code: "BRE111#{n+1}",
-    course_type: "Breadth Elective",
+    course_code: "STA111#{n+1}",
+    course_type: rand(1..10),
     difficulty: "#{10-n}",
     description: "<div> #{description} </div>",
-    desc_preview: description.truncate(100)
+    desc_preview: description.truncate(80)
+  )
+end
+
+5.times do |n|
+  description = Faker::Lorem.paragraph
+  Course.create(
+    name: Faker::Company.catch_phrase,
+    course_code: "EGM311#{n+1}",
+    course_type: rand(1..10),
+    difficulty: "#{10-n}",
+    description: "<div> #{description} </div>",
+    desc_preview: description.truncate(80)
+  )
+end
+
+5.times do |n|
+  description = Faker::Lorem.paragraph
+  Course.create(
+    name: Faker::Company.catch_phrase,
+    course_code: "EES211#{n+1}",
+    course_type: rand(1..10),
+    difficulty: "#{10-n}",
+    description: "<div> #{description} </div>",
+    desc_preview: description.truncate(80)
+  )
+end
+
+5.times do |n|
+  description = Faker::Lorem.paragraph
+  Course.create(
+    name: Faker::Company.catch_phrase,
+    course_code: "EGS411#{n+1}",
+    course_type: rand(1..10),
+    difficulty: "#{10-n}",
+    description: "<div> #{description} </div>",
+    desc_preview: description.truncate(80)
+  )
+end
+
+5.times do |n|
+  description = Faker::Lorem.paragraph
+  Course.create(
+    name: Faker::Company.catch_phrase,
+    course_code: "ECH311#{n+1}",
+    course_type: rand(1..10),
+    difficulty: "#{10-n}",
+    description: "<div> #{description} </div>",
+    desc_preview: description.truncate(80)
   )
 end
 
 puts "Creating tech courses"
-6.times do |n|
+
+5.times do |n|
   description = Faker::Lorem.paragraph
   Course.create(
     name: Faker::Company.catch_phrase,
-    course_code: "TEC111#{n+1}",
+    course_code: "STA411#{n+1}",
     course_type: "Tech Elective",
-    difficulty: "#{10-n}",
+    difficulty: rand(1..10),
     description: "<div> #{description} </div>",
-    desc_preview: description.truncate(100)
+    desc_preview: description.truncate(80)
+  )
+end
+
+5.times do |n|
+  description = Faker::Lorem.paragraph
+  Course.create(
+    name: Faker::Company.catch_phrase,
+    course_code: "COP311#{n+1}",
+    course_type: "Tech Elective",
+    difficulty: rand(1..10),
+    description: "<div> #{description} </div>",
+    desc_preview: description.truncate(80)
+  )
+end
+
+5.times do |n|
+  description = Faker::Lorem.paragraph
+  Course.create(
+    name: Faker::Company.catch_phrase,
+    course_code: "CIS311#{n+1}",
+    course_type: "Tech Elective",
+    difficulty: rand(1..10),
+    description: "<div> #{description} </div>",
+    desc_preview: description.truncate(80)
+  )
+end
+
+5.times do |n|
+  description = Faker::Lorem.paragraph
+  Course.create(
+    name: Faker::Company.catch_phrase,
+    course_code: "MAC411#{n+1}",
+    course_type: "Tech Elective",
+    difficulty: rand(1..10),
+    description: "<div> #{description} </div>",
+    desc_preview: description.truncate(80)
+  )
+end
+
+5.times do |n|
+  description = Faker::Lorem.paragraph
+  Course.create(
+    name: Faker::Company.catch_phrase,
+    course_code: "PHY411#{n+1}",
+    course_type: "Tech Elective",
+    difficulty: rand(1..10),
+    description: "<div> #{description} </div>",
+    desc_preview: description.truncate(80)
+  )
+end
+
+5.times do |n|
+  description = Faker::Lorem.paragraph
+  Course.create(
+    name: Faker::Company.catch_phrase,
+    course_code: "EEL411#{n+1}",
+    course_type: "Tech Elective",
+    difficulty: rand(1..10),
+    description: "<div> #{description} </div>",
+    desc_preview: description.truncate(80)
   )
 end
 

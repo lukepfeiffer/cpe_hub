@@ -1,22 +1,27 @@
 = form_for course do |f|
   %fieldset
-    %dl
-      .inline
-        %dt= f.label :name
-        %dd= f.text_field :name
+    .inline
+      %span.item
+        = f.label :name
+        = f.text_field :name
 
-        %dt= f.label :course_code
-        %dd= f.text_field :course_code, placeholder: "FOO1111"
+      %span.item
+        = f.label :course_code
+        = f.text_field :course_code, placeholder: "FOO1111"
+      %br.clear_both
 
-      .inline
-        %dt= f.label :course_type
-        %dd= f.select :course_type, options_for_select(course_types)
+    .inline
+      %span.item
+        = f.label :course_type
+        = f.select :course_type, options_for_select(course_types)
 
-        %dt= f.label :difficulty
-        %dd= f.number_field :difficulty, within: 1..10
+      %span.item
+        = f.label :difficulty
+        = f.number_field :difficulty, within: 1..10
+      %br.clear_both
 
-      %dt= f.label :description
-      %dd= f.trix_editor :description, id: "course_editor"
+    = f.label :description
+    = f.trix_editor :description, id: "course_editor"
 
   %fieldset.actions
     = f.submit "Save"

@@ -24,7 +24,7 @@ class CoursesController < ApplicationController
 
   def create
     course = Course.new(course_params)
-    course.desc_preview = Rails::Html::FullSanitizer.new.sanitize(course.description).truncate(100)
+    course.desc_preview = Rails::Html::FullSanitizer.new.sanitize(course.description).truncate(80)
 
     if course.save
       flash[:success] = "Course successfully created!"
@@ -41,7 +41,7 @@ class CoursesController < ApplicationController
 
   def update
     course = Course.find(params[:id])
-    course.update(desc_preview: Rails::Html::FullSanitizer.new.sanitize(course.description).truncate(100))
+    course.update(desc_preview: Rails::Html::FullSanitizer.new.sanitize(course.description).truncate(80))
     if course.update(course_params)
       flash[:success] = "Course successfully updated!"
       redirect_to course_path(course.id)

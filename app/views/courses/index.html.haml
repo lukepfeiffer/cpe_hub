@@ -3,10 +3,10 @@
   .grid-items-lines.courses
     - courses.each do |course|
       = link_to course_path(course.id), class: "grid-item" do
-        %h1
-          = course.name
-          &bull;
-          = course.course_code
+        %h1= course.course_code
+        .subdetail
+          .name= course.name
+          = "Difficulty: #{course.difficulty}"
         %p= course.desc_preview
         .detail
           %i= "Last updated #{course.updated_at.strftime("%B %d, %Y")}"

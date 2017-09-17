@@ -8,6 +8,7 @@
 @import "trix";
 @import "footer";
 @import "grid_items";
+@import "forms";
 
 #main{
   margin: 0;
@@ -27,6 +28,14 @@
   padding: 5px 0px 20px 0px;
   text-align: center;
   margin-bottom: 30px;
+}
+
+.subdetail{
+  color: #535A60;
+
+  .name{
+    display: block;
+  }
 }
 
 .professors{
