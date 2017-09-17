@@ -8,15 +8,54 @@
 
 puts "Creating user"
 
-User.create(email: "email@example.com", password: "password", confirmed_email: true, access_level: 1)
+User.create(email: "email@example.com", password: "password", confirmed_email: true, access_level: 1, username: "NormalUser")
 
 puts "Create admin"
-admin = User.create(email: "admin@example.com", password: "password", confirmed_email: true, access_level: 4)
+admin = User.create(email: "admin@example.com", password: "password", confirmed_email: true, access_level: 4, username: "AdminUser")
 
 puts "Creating faqs"
 5.times do |n|
-  Faq.create(question: "FAQ #{n+1}", answer: "Some answer #{n+1}")
+  Faq.create(question: "FAQ #{n+1}", answer: "<div> Some answer #{n+1} </div>", user_id: admin.id)
+end
+
+puts "Creating core courses"
+6.times do |n|
+  description = Faker::Lorem.paragraph
+  Course.create(
+    name: Faker::Company.catch_phrase,
+    course_code: "COR111#{n+1}",
+    course_type: "Core",
+    difficulty: "#{10-n}",
+    description: "<div> #{description} </div>",
+    desc_preview: description.truncate(100)
+  )
+end
+
+puts "Creating breadth courses"
+6.times do |n|
+  description = Faker::Lorem.paragraph
+  Course.create(
+    name: Faker::Company.catch_phrase,
+    course_code: "BRE111#{n+1}",
+    course_type: "Breadth Elective",
+    difficulty: "#{10-n}",
+    description: "<div> #{description} </div>",
+    desc_preview: description.truncate(100)
+  )
+end
+
+puts "Creating tech courses"
+6.times do |n|
+  description = Faker::Lorem.paragraph
+  Course.create(
+    name: Faker::Company.catch_phrase,
+    course_code: "TEC111#{n+1}",
+    course_type: "Tech Elective",
+    difficulty: "#{10-n}",
+    description: "<div> #{description} </div>",
+    desc_preview: description.truncate(100)
+  )
 end
 
 puts "Creating super_user"
-admin = User.create(email: "super@example.com", password: "password", confirmed_email: true, access_level: 5)
+s_user = User.create(email: "super@example.com", password: "password", confirmed_email: true, access_level: 5, username: "SuperUser")

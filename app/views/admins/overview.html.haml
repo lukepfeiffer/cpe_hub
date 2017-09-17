@@ -10,7 +10,7 @@
       - faqs.each do |faq|
         .faq
           %p= link_to faq.question, faq_path(faq.id)
-          %p= faq.answer
+          %p= faq.answer.html_safe
 
 .panel.primary
   .panel-header
