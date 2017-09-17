@@ -1,0 +1,5 @@
+#courses_index
+  .courses
+    %h1= "#{params[:type].titleize} Courses"
+    - courses.each do |course|
+      = course.name

@@ -1,5 +1,6 @@
 %h1 Overview
 = link_to "Create FAQ", new_faq_path
+= link_to "Create Course", new_course_path
 
 .panel.primary
   .panel-header
@@ -10,3 +11,13 @@
         .faq
           %p= link_to faq.question, faq_path(faq.id)
           %p= faq.answer
+
+.panel.primary
+  .panel-header
+    %h1 Course
+  .panel-body
+    .courses
+      - courses.each do |course|
+        .course
+          %p= link_to course.name, course_path(course.id)
+          %p= course.description

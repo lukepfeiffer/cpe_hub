@@ -1,0 +1,10 @@
+.panel.primary
+  .panel-header
+    %h1= "#{course.name} #{course.course_code}"
+    .actions
+      = link_to "Edit", edit_course_path(course.id)
+      = link_to "Delete"
+  .panel-body
+    %p= course.description
+    %p= course.course_type
+    %p= course.difficulty
