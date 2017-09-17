@@ -1,5 +1,12 @@
 #courses_index
-  .courses
-    %h1= "#{params[:type].titleize} Courses"
+  %h1= "#{params[:type].titleize} Courses"
+  .grid-items-lines.courses
     - courses.each do |course|
-      = course.name
+      = link_to course_path(course.id), class: "grid-item" do
+        %h1
+          = course.name
+          &bull;
+          = course.course_code
+        %p= course.description
+        .detail
+          %i= "Last updated #{course.updated_at.strftime("%B %d, %Y")}"

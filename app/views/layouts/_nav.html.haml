@@ -9,15 +9,15 @@
           %a{href: "javascript:void(0)"} Courses
           %ul.submenu
             %li
-              = link_to root_path do
+              = link_to courses_path(type: "core") do
                 Core
                 %i.fa.fa-microchip
             %li
-              = link_to root_path do
+              = link_to courses_path(type: "tech_elective") do
                 Tech
                 %i.fa.fa-desktop
             %li
-              = link_to root_path do
+              = link_to courses_path(type: "breadth_elective") do
                 Breadth
                 %i.fa.fa-balance-scale
 
