@@ -1,12 +1,27 @@
 class CoursesController < ApplicationController
   expose :course
-  expose :courses do
+
+  expose :course_letters do
     if params[:type] == "tech_elective"
-      Course.where(course_type: "Tech Elective")
+      letters = Course.course_code_letters("Tech Elective")
     elsif params[:type] == "breadth_elective"
-      Course.where(course_type: "Breadth Elective")
+      letters = Course.course_code_letters("Breadth Elective")
     elsif params[:type] == "core"
-      Course.where(course_type: "Core")
+      letters = Course.course_code_letters("Core")
+    else
+      letters = Course.all
+    end
+
+    letters.uniq.sort_by(&:downcase)
+  end
+
+  expose :array_of_arrays do
+    if params[:type] == "tech_elective"
+      Course.filter_by_code("Tech Elective")
+    elsif params[:type] == "breadth_elective"
+      Course.filter_by_code("Breadth Elective")
+    elsif params[:type] == "core"
+      Course.filter_by_code("Core")
     else
       Course.all
     end

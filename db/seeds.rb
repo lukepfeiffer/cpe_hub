@@ -49,8 +49,8 @@ puts "Creating breadth courses"
   Course.create(
     name: Faker::Company.catch_phrase,
     course_code: "STA111#{n+1}",
-    course_type: rand(1..10),
-    difficulty: "#{10-n}",
+    course_type: "Breadth Elective",
+    difficulty: rand(1..10),
     description: "<div> #{description} </div>",
     desc_preview: description.truncate(80)
   )
@@ -61,8 +61,8 @@ end
   Course.create(
     name: Faker::Company.catch_phrase,
     course_code: "EGM311#{n+1}",
-    course_type: rand(1..10),
-    difficulty: "#{10-n}",
+    course_type: "Breadth Elective",
+    difficulty: rand(1..10),
     description: "<div> #{description} </div>",
     desc_preview: description.truncate(80)
   )
@@ -73,8 +73,8 @@ end
   Course.create(
     name: Faker::Company.catch_phrase,
     course_code: "EES211#{n+1}",
-    course_type: rand(1..10),
-    difficulty: "#{10-n}",
+    course_type: "Breadth Elective",
+    difficulty: rand(1..10),
     description: "<div> #{description} </div>",
     desc_preview: description.truncate(80)
   )
@@ -85,8 +85,8 @@ end
   Course.create(
     name: Faker::Company.catch_phrase,
     course_code: "EGS411#{n+1}",
-    course_type: rand(1..10),
-    difficulty: "#{10-n}",
+    course_type: "Breadth Elective",
+    difficulty: rand(1..10),
     description: "<div> #{description} </div>",
     desc_preview: description.truncate(80)
   )
@@ -97,8 +97,8 @@ end
   Course.create(
     name: Faker::Company.catch_phrase,
     course_code: "ECH311#{n+1}",
-    course_type: rand(1..10),
-    difficulty: "#{10-n}",
+    course_type: "Breadth Elective",
+    difficulty: rand(1..10),
     description: "<div> #{description} </div>",
     desc_preview: description.truncate(80)
   )
