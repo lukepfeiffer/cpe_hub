@@ -2,7 +2,43 @@ class Course < ActiveRecord::Base
   validates_presence_of :course_code, :name, :description
   validate :valid_course_code
 
-  def by_course_code(course_code)
+  def self.filter_by_code(course_type=nil)
+    letters_array = Course.course_code_letters(course_type).uniq
+    letters_array = letters_array.sort_by(&:downcase)
+    if course_type.present?
+      courses = Course.where(course_type: course_type)
+    else
+      courses = Course.all
+    end
+
+    sorted_courses = []
+
+    letters_array.each do |letters|
+      courses_array = []
+
+      courses.each do |course|
+        if(course.course_code.include?(letters))
+           courses_array << course
+           courses = courses.reject{|remove_course| remove_course == course }
+        end
+      end
+
+      sorted_courses << courses_array
+    end
+
+    sorted_courses
+  end
+
+  def self.course_code_letters(course_type=nil)
+    if course_type.present?
+      courses = Course.where(course_type: course_type)
+    else
+      courses = Course.all
+    end
+
+    courses.each_with_object([]) do |course, letters|
+      letters << course.course_code[0..2]
+    end
   end
 
   def valid_course_code
