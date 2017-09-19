@@ -1,8 +1,8 @@
 .panel.primary
   .panel-header
-    %h1= faq.question
-    .actions
-      = link_to "Edit", edit_faq_path(faq.id)
-      = link_to "Delete"
+    %h1
+      = faq.question
+      = link_to edit_faq_path(faq.id) do
+        %button.edit Edit
   .panel-body
-    %p= faq.answer
+    %p= faq.answer.html_safe
