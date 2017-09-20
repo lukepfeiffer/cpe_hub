@@ -1,4 +1,6 @@
 class Course < ActiveRecord::Base
+  has_many :professors, through: :professor_courses
+
   validates_presence_of :course_code, :name, :description
   validate :valid_course_code
 

@@ -21,10 +21,18 @@
                 Breadth
                 %i.fa.fa-balance-scale
 
-        %li.nav-link
-          = link_to root_path do
-            Discussions
-            %i.fa.fa-users
+        %li#js-navigation-more.nav-link.more
+          %a{href: "javascript:void(0)"} Discussions
+          %ul.submenu
+            %li
+              = link_to root_path do
+                Discussion Board
+                %i.fa.fa-users
+            %li
+              = link_to root_path do
+                Professors
+                %i.fa.fa-user-secret
+
         %li.nav-link
           = link_to faqs_path do
             FAQ

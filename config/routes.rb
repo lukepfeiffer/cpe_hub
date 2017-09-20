@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
+  resources :professors
   resources :courses
   resources :faqs
   resources :users do
