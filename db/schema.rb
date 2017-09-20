@@ -49,19 +49,19 @@ ActiveRecord::Schema.define(version: 20170919121124) do
     t.datetime "updated_at"
   end
 
+  create_table "professor_courses", force: :cascade do |t|
+    t.integer  "course_id"
+    t.integer  "professor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "professors", force: :cascade do |t|
     t.string   "title"
     t.string   "first_name"
     t.string   "last_name"
     t.text     "description"
     t.integer  "rating"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "taught_courses", force: :cascade do |t|
-    t.integer  "course_id"
-    t.integer  "professor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
