@@ -11,8 +11,8 @@ class ProfessorsController < ApplicationController
     professor = Professor.new(professor_params)
 
     if professor.save
-      ProfessorCourse.create_join_for_professor(params[:course], professor.id)
-      flash[:danger] = "Professor successfully created!"
+      ProfessorCourse.create_join_for_professor(params[:course], professor.id) if params[:course].present?
+      flash[:success] = "Professor successfully created!"
       redirect_to professor_path(professor.id)
     else
       flash[:danger] = "Something went wrong..."
