@@ -5,9 +5,16 @@
     margin-right: 10px;
   }
 
-  .clear_both{
-    clear: both;
+  .item-small{
+    width: 32%;
+    float: left;
+    margin-right: 10px;
   }
+
+}
+
+.clear_both{
+  clear: both;
 }
 
 input[type=submit]{

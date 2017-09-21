@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require trix
 //= require courses
+//= require professors
 //= require_tree .

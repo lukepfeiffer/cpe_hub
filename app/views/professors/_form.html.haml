@@ -1,0 +1,33 @@
+= form_for professor do |f|
+  %fieldset
+    .inline
+      %span.item-small
+        = f.label :first_name
+        = f.text_field :first_name
+
+      %span.item-small
+        = f.label :last_name
+        = f.text_field :last_name
+
+      %span.item-small
+        = f.label :title
+        = f.select :title, options_for_select(["Mr.", "Mrs.", "Dr."])
+
+      %br.clear_both
+
+    %span.inline
+      .item-small
+        = label_tag :course
+        = select_tag "course", options_from_collection_for_select(courses, "id", "name", "1"), multiple: true
+
+      .item-small
+        %br
+        %br
+        %a.add_course Another Course
+
+    %br.clear_both
+    = f.label :description
+    = f.trix_editor :description, id: "professor_editor"
+
+  %fieldset.actions
+    = f.submit "Save"
