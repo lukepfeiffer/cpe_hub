@@ -15,15 +15,13 @@
 
       %br.clear_both
 
-    %span.inline
-      .item-small
+    .inline
+      %span.item
         = label_tag :course
         = select_tag "course", options_from_collection_for_select(courses, "id", "name", "1"), multiple: true
-
-      .item-small
-        %br
-        %br
-        %a.add_course Another Course
+      %span.item
+        = label_tag :rating
+        = f.number_field :rating, within: 1..10
 
     %br.clear_both
     = f.label :description

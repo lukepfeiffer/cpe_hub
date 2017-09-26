@@ -1,1 +1,13 @@
-%h1 Professors
+#prof-index
+  %h1 Professors
+
+  .professors
+    - professors.each do |professor|
+      .professor
+        %span.prof-image
+          = link_to( image_tag("https://mil.ufl.edu/ems/SchwartzE.jpg"), professor_path(professor.id) )
+        %span.prof-details
+          = link_to professor.full_name, professor_path(professor.id), class: "full-name"
+          - professor.courses.first(5).each do |course|
+            %span.prof-course-codes= link_to course.course_code, course_path(course.id)
+        %br.clear_both

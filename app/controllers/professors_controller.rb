@@ -26,7 +26,8 @@ class ProfessorsController < ApplicationController
       :first_name,
       :last_name,
       :title,
-      :description
+      :description,
+      :rating
     )
   end
 end
