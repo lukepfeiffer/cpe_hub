@@ -1,21 +1,25 @@
 #courses_index
-  %h1#top= "#{params[:type].titleize} Courses"
+  - if valid_params?(params)
+    %h1#top= "#{params[:type].titleize} Courses"
 
-  .course-letters
-    - course_letters.each do |letters|
-      = link_to letters, "#" + letters
+    .course-letters
+      - course_letters.each do |letters|
+        = link_to letters, "#" + letters
 
-  - array_of_arrays.each do |array|
-    .letters
-      %h1.course-type{id: array.first.course_code[0..2]}= array.first.course_code[0..2]
-      = link_to "Back to top", "#top", class: "to-top"
-    .grid-items-lines.courses
-      - array.each do |course|
-        = link_to course_path(course.id), class: "grid-item" do
-          %h1= course.course_code
-          .subdetail
-            .name= course.name
-            = "Difficulty: #{course.difficulty}"
-          %p= course.desc_preview
-          .detail
-            %i= "Last updated #{course.updated_at.strftime("%B %d, %Y")}"
+    - array_of_arrays.each do |array|
+      .letters
+        %h1.course-type{id: array.first.course_code[0..2]}= array.first.course_code[0..2]
+        = link_to "Back to top", "#top", class: "to-top"
+      .grid-items-lines.courses
+        - array.each do |course|
+          = link_to course_path(course.id), class: "grid-item" do
+            %h1= course.course_code
+            .subdetail
+              .name= course.name
+              = "Difficulty: #{course.difficulty}"
+            %p= course.desc_preview
+            .detail
+              %i= "Last updated #{course.updated_at.strftime("%B %d, %Y")}"
+  - else
+    %h1 Sorry, invalid parameters!
+    = image_tag "https://developers.google.com/maps/documentation/streetview/images/error-image-generic.png"

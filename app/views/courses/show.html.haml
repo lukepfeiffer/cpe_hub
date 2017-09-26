@@ -15,15 +15,9 @@
       = course.course_type
 
     %h1 Professors
-    .professors
-      .professor
-        %p.name= link_to "Dr. Schwartz", root_path
-        %p.headshot= image_tag("https://mil.ufl.edu/ems/SchwartzE.jpg")
-
-      .professor
-        %p.name= link_to  "Dr. Gugel", root_path
-        %p.headshot= image_tag("https://www.ece.ufl.edu/sites/default/files/pictures/styles/user_profile/public/pictures/picture-300-1369161638.jpg?itok=IEoUMJc-")
-
-      .professor
-        %p.name= link_to  "Dave Smalls", root_path
-        %p.headshot= image_tag("https://bloximages.chicago2.vip.townnews.com/alligator.org/content/tncms/assets/v3/editorial/c/d4/cd46575c-282e-11e0-b2ce-001cc4c03286/4d3e3c071bd3e.image.jpg")
+    .course-professors
+      .professors
+        - course.professors.each do |professor|
+          .professor
+            %p.name= link_to professor.full_name, professor_path(professor.id)
+            %p.headshot= image_tag("https://mil.ufl.edu/ems/SchwartzE.jpg")
