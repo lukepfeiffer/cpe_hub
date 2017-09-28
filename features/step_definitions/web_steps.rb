@@ -7,6 +7,16 @@ Given /^I am signed in as an admin$/ do
   click_button 'Sign In'
 end
 
+Given /^I am signed in as a user$/ do
+  # Must have admin in database!!!
+  visit log_in_path
+  fill_in 'sign_in_email', with: "user@example.com"
+  fill_in 'sign_in_password', with: "password"
+  fill_in 'sign_in_password', with: "password"
+  click_button 'Sign In'
+end
+
+
 When /^I check "(.+)"$/ do |selector|
   check(selector)
 end
