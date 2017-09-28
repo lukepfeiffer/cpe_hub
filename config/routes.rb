@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :professors
   resources :courses
   resources :faqs
+  resources :discussions
   resources :users do
     member do
       get :confirm_email

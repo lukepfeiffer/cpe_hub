@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   before_create :confirmation_token
+  has_many :discussions
 
   include Authem::User
 
