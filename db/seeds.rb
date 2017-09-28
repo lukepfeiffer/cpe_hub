@@ -15,7 +15,7 @@ admin = User.create(email: "admin@example.com", password: "password", confirmed_
 
 puts "Creating faqs"
 5.times do |n|
-  Faq.create(question: "FAQ #{n+1}", answer: "<div> Some answer #{n+1} </div>", user_id: admin.id)
+  Faq.create(question: "FAQ #{n+1}", answer: "<div> #{Faker::Lorem.paragraph(8, true, 10)} </div>", user_id: admin.id)
 end
 
 puts "Creating core courses"
@@ -176,6 +176,32 @@ end
     description: "<div> #{description} </div>",
     desc_preview: description.truncate(80)
   )
+end
+
+puts "Creating professors"
+10.times do |n|
+  description = Faker::Lorem.paragraph(10, true, 10)
+  Professor.create(
+    title: Faker::Name.prefix,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    description: description,
+    rating: rand(1..10)
+  )
+end
+
+puts "Creating professor join table"
+
+10.times do |n|
+  professor_id = n+1
+  course_ids = Course.all.map(&:id)
+  rand(1..6).times do
+    course_id = course_ids.sample
+    ProfessorCourse.create(
+      course_id: course_id,
+      professor_id: professor_id
+    )
+  end
 end
 
 puts "Creating super_user"
