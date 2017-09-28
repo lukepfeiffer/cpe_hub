@@ -18,12 +18,12 @@ Feature: Discussions
     And I should see "This is the description of the question."
     And I should see "Discussion successfully created!"
 
-  Scenario: Admin adds notes to discussion post
-    Given 1 admin
-    And I am signed in as an admin
-    And I am on the "/discussions" page
-    And I follow "Discussion"
-    And I follow "Edit"
-    When I fill in "discussion_admin_notes" with "This is a note"
-    And I press "Save"
-    Then I should see "This is a note"
+  # Scenario: Admin adds notes to discussion post
+  #   Given 1 admin
+  #   And I am signed in as an admin
+  #   And I am on the "/discussions" page
+  #   And I follow "Discussion"
+  #   And I follow "Edit"
+  #   When I fill in "discussion_admin_notes" with "This is a note"
+  #   And I press "Save"
+  #   Then I should see "This is a note"
