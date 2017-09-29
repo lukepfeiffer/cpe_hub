@@ -2,3 +2,7 @@
 - if current_user.present?
   = link_to new_discussion_path do
     %button Create Discussion
+
+- discussions.each do |disc|
+  = link_to disc.question, discussion_path(disc.id)
+  = disc.description.html_safe

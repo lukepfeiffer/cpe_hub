@@ -204,5 +204,18 @@ puts "Creating professor join table"
   end
 end
 
+puts "Creating discussions"
+20.times do |n|
+  description = Faker::Lorem.paragraph(10, true, 10)
+  question = Faker::Lorem.paragraph(2, true, 10)
+  Discussion.create(
+    user_id: User.first.id,
+    course_id: Course.all[rand(1..20)],
+    flag_count: rand(1..20),
+    description: "<div> #{description} </div>",
+    question: question
+  )
+end
+
 puts "Creating super_user"
 s_user = User.create(email: "super@example.com", password: "password", confirmed_email: true, access_level: 5, username: "SuperUser")

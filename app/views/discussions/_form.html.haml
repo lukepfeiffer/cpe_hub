@@ -9,5 +9,9 @@
     = f.label :description
     = f.trix_editor :description, id: "description_editor"
 
+    - if current_user.access_rights?(4)
+      = f.label :admin_notes
+      = f.trix_editor :admin_notes, id: "admin_note_editor"
+
   %fieldset.actions
     = f.submit "Save"

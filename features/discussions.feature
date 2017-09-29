@@ -20,10 +20,14 @@ Feature: Discussions
 
   # Scenario: Admin adds notes to discussion post
   #   Given 1 admin
+  #   And the following discussion:
+  #     | question    | Some question    |
+  #     | description | Some description |
+  #     | user_id     | 1                |
   #   And I am signed in as an admin
   #   And I am on the "/discussions" page
-  #   And I follow "Discussion"
+  #   And I follow "Some question"
   #   And I follow "Edit"
-  #   When I fill in "discussion_admin_notes" with "This is a note"
+  #   When I fill in the trix editor with name of "discussion[admin_notes]" with "This is a note."
   #   And I press "Save"
-  #   Then I should see "This is a note"
+  #   Then I should see "This is a note."

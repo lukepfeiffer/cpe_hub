@@ -20,7 +20,18 @@ class DiscussionsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
+    discussion = Discussion.find(params[:id])
+    if discussion.update(discussion_params)
+      flash[:success] = "Discussion successfully updated!"
+      redirect_to discussion_path(discussion.id)
+    else
+      flash[:danger] = "Something went wrong..."
+      render :edit
+    end
   end
 
   private
