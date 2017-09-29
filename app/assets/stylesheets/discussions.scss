@@ -4,6 +4,10 @@ $border-color: #E4E6E8;
 $question-color: #0077CC;
 $detail-color: #6a737c;
 
+.comments{
+  width: 100%;
+}
+
 .tag{
   padding: 3px;
   font-size: 12px;
@@ -157,6 +161,9 @@ $detail-color: #6a737c;
 
     .body{
       width: 93%;
+      border-bottom: 1px solid $light-gray;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
     }
   }
 }

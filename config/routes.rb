@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :courses
   resources :faqs
   resources :discussions
+  resources :comments, only: [:create, :update, :edit]
   resources :users do
     member do
       get :confirm_email

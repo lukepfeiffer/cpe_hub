@@ -1,0 +1,7 @@
+= form_for new_comment do |f|
+  %fieldset
+    = f.label :body
+    = f.trix_editor :body
+  %fieldset.actions
+    = f.submit "Save"
+

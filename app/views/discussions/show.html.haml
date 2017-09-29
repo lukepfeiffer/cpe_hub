@@ -17,3 +17,7 @@
       .question-username
         .time= "asked #{distance_of_time_in_words(discussion.created_at, DateTime.now)} ago"
         .name= discussion.user.try(&:username)
+
+
+    .comments
+      = render "comment_form"

@@ -1,5 +1,9 @@
 class DiscussionsController < ApplicationController
   expose :discussion
+  expose :new_comment do
+    Comment.new
+  end
+
   expose :discussions do
     Discussion.all
   end
