@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   get '/downvote', to: 'votes#downvote'
 
   post '/log_in', to: 'sessions#create'
+
+  delete '/sign_out', to: 'sessions#destroy'
 end
