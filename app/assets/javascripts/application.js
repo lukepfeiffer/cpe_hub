@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require votes
 //= require trix
 //= require courses
 //= require professors

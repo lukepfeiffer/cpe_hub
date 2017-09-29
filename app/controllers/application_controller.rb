@@ -19,12 +19,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
   def valid_access_level(min_level)
     if current_user.nil? || current_user.access_level < min_level
       flash[:danger] = "You do not have access for that action."
       redirect_to root_path
     end
   end
-
 end
