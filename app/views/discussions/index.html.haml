@@ -1,12 +1,27 @@
-%h1 Discussions
-- if current_user.present?
-  = link_to new_discussion_path do
-    %button Create Discussion
+.discussion-index
+  %h1.header Top Discussions
+  - if current_user.present?
+    = link_to new_discussion_path do
+      %button Create Discussion
 
-.discussions
-  - discussions.each do |disc|
-    .discussion
-      .question
-        %h1= link_to disc.question, discussion_path(disc.id)
-      .details
-        %span.tag= disc.course.try(&:course_code)
+  .discussions
+    - discussions.each do |disc|
+      .discussion
+        .logistics
+          .votes
+            .vertical-align
+              %span.vote-counter +20
+              %p.sub-cont Votes
+          .replies
+            .vertical-align
+              10
+              %p.sub-cont Replies
+        .disc-content
+          .question= link_to disc.question, discussion_path(disc.id)
+          .details
+            %span.tag= disc.course.try(&:course_code)
+
+            .poster
+              %div
+                = "asked #{distance_of_time_in_words(disc.created_at, DateTime.now)} ago by"
+                %span.username= disc.user.username
