@@ -210,7 +210,7 @@ puts "Creating discussions"
   question = Faker::Lorem.paragraph(2, true, 10)
   Discussion.create(
     user_id: User.first.id,
-    course_id: Course.all[rand(1..20)],
+    course_id: Course.all[rand(1..20)].id,
     flag_count: rand(1..20),
     description: "<div> #{description} </div>",
     question: question

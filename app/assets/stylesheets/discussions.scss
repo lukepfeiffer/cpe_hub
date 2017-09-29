@@ -1,0 +1,18 @@
+$blue: #39739d;
+$light-gray: #E1ECF4;
+.discussions{
+  .discussion{
+    .question{
+    }
+
+    .details{
+      .tag{
+        padding: 3px;
+        font-size: 12px;
+        color: $blue;
+        background-color: $light-gray;
+        border: 1px solid transparent;
+      }
+    }
+  }
+}

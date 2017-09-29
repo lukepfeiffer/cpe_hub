@@ -3,6 +3,10 @@
   = link_to new_discussion_path do
     %button Create Discussion
 
-- discussions.each do |disc|
-  = link_to disc.question, discussion_path(disc.id)
-  = disc.description.html_safe
+.discussions
+  - discussions.each do |disc|
+    .discussion
+      .question
+        %h1= link_to disc.question, discussion_path(disc.id)
+      .details
+        %span.tag= disc.course.try(&:course_code)
