@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     comment.user_id = current_user.id
     discussion_id = params[:comment][:discussion_id]
     if comment.save
-      flash[:success] = "Comment successfully created"
+      flash[:success] = "Comment successfully created!"
       redirect_to discussion_path(discussion_id)
     else
       flash[:danger] = "Something went wrong..."

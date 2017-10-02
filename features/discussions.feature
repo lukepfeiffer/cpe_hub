@@ -18,6 +18,19 @@ Feature: Discussions
     And I should see "This is the description of the question."
     And I should see "Discussion successfully created!"
 
+  Scenario: User adds comment to post
+    Given 1 user
+    And that user has the following discussion: 
+      | description | This is the description |
+      | question    | This is the question    |
+    And I am signed in as a user
+    And I am on the "/discussions" page
+    When I follow "This is the question"
+    And I fill in the trix editor with id of "#comment_body_trix_input_comment" with "This is a comment"
+    And I press "Save"
+    Then I should see "Comment successfully created!"
+    And I should see "This is a comment"
+
   # Scenario: Admin adds notes to discussion post
   #   Given 1 admin
   #   And the following discussion:
