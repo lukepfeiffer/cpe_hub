@@ -6,4 +6,9 @@
       .comment-username= comment.user.username
       = comment.body.html_safe
 
-    %p.comment-detail View replies (1)
+    %p.comment-detail
+      - if current_user.present?
+        %a.create_reply Create reply
+      = "View replies (#{comment.comments.count})"
+    - if current_user.present?
+      .hidden= render "reply_form"
