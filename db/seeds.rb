@@ -10,6 +10,19 @@ puts "Creating user"
 
 User.create(email: "email@example.com", password: "password", confirmed_email: true, access_level: 1, username: "NormalUser")
 
+puts "Creating users"
+10.times do
+  username = Faker::Internet.user_name
+  email = Faker::Internet.free_email
+  User.create(
+    username: username,
+    email: email,
+    password: "password",
+    confirmed_email: true,
+    access_level: 1
+  )
+end
+
 puts "Create admin"
 admin = User.create(email: "admin@example.com", password: "password", confirmed_email: true, access_level: 4, username: "AdminUser")
 
