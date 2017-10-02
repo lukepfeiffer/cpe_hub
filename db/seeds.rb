@@ -217,5 +217,17 @@ puts "Creating discussions"
   )
 end
 
+puts "Creating commnets"
+40.times do |n|
+  body = Faker::Lorem.paragraph(10, true, 10)
+  user_id = User.all[rand(1..User.all.count-1)].id
+  discussion_id = Discussion.all[rand(1..Discussion.all.count-1)].id
+  Comment.create(
+    body: body,
+    user_id: user_id,
+    discussion_id: discussion_id
+  )
+end
+
 puts "Creating super_user"
 s_user = User.create(email: "super@example.com", password: "password", confirmed_email: true, access_level: 5, username: "SuperUser")

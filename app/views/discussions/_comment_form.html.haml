@@ -2,6 +2,10 @@
   %fieldset
     = f.label :body
     = f.trix_editor :body
+
+    - if current_user.present?
+      = f.label :discussion_id
+      = f.hidden_field :discussion_id, value: current_user.id
   %fieldset.actions
     = f.submit "Save"
 

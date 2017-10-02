@@ -21,3 +21,5 @@
 
     .comments
       = render "comment_form"
+
+      = render partial: "comments", collection: comments, as: :comment

@@ -4,6 +4,10 @@ class DiscussionsController < ApplicationController
     Comment.new
   end
 
+  expose :comments do
+    discussion.comments
+  end
+
   expose :discussions do
     Discussion.all
   end
