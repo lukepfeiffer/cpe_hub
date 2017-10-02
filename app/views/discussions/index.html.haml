@@ -10,16 +10,18 @@
         .logistics
           .votes
             .vertical-align
-              %span.vote-counter +20
+              %span.vote-counter= disc.vote_count
               %p.sub-cont Votes
           .replies
             .vertical-align
-              10
+              = disc.comments.count
               %p.sub-cont Replies
         .disc-content
           .question= link_to disc.question, discussion_path(disc.id)
           .details
-            %span.tag= disc.course.try(&:course_code)
+            %span.tag
+              - if disc.course.present?
+                = link_to disc.course.course_code, course_path(disc.course.id)
 
             .poster
               %div

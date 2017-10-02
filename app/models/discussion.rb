@@ -9,7 +9,4 @@ class Discussion < ActiveRecord::Base
     vote_count = vote_values.sum
     vote_count < 0 ? 0 : vote_count
   end
-
-  def comments_count
-  end
 end
