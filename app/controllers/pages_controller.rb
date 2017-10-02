@@ -4,4 +4,10 @@ class PagesController < ApplicationController
 
   def log_in
   end
+
+  def about
+  end
+
+  def contact
+  end
 end

@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get "/log_in", to: "pages#log_in"
   get '/upvote', to: 'votes#upvote'
   get '/downvote', to: 'votes#downvote'
+  get "/contact", to: "pages#contact"
+  get "/about", to: "pages#about"
 
   post '/log_in', to: 'sessions#create'
 

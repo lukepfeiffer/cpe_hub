@@ -29,6 +29,10 @@ class DiscussionsController < ApplicationController
   end
 
   def edit
+    unless valid_user
+      flash[:danger] = "You do not have access!"
+      redirect_to root_path
+    end
   end
 
   def update
@@ -51,5 +55,17 @@ class DiscussionsController < ApplicationController
       :admin_notes,
       :flag_count
     )
+  end
+
+  def valid_user
+    if current_user.present?
+      unless current_user.id == discussion.user_id || current_user.access_rights?(4)
+        return true
+      else
+        return false
+      end
+    else
+      return false
+    end
   end
 end

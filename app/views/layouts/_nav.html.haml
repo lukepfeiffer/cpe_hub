@@ -38,7 +38,7 @@
             %a{href: "javascript:void(0)"} Actions
             %ul.submenu
               %li
-                = link_to root_path do
+                = link_to edit_user_path(current_user.id) do
                   Profile
                   %i.fa.fa-user-circle
               %li

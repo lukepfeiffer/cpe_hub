@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :valid_edit_access, only: :edit
   expose :user
 
   def new
@@ -13,6 +14,18 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       render :new
+    end
+  end
+
+  def update
+    user = User.find(params[:id])
+    user.update(user_params)
+    if user.save
+      flash[:success] = "User updated successfully!"
+      redirect_to edit_user_path(user.id)
+    else
+      flash[:danger] = "Something went wrong..."
+      render :edit
     end
   end
 
