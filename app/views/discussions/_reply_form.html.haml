@@ -1,10 +1,10 @@
 = form_for new_comment do |f|
   %fieldset
     = f.label :body
-    = f.trix_editor :body
+    = f.trix_editor :body, id: comment.id
 
-    = f.label :comment_id
     = f.hidden_field :comment_id, value: comment.id
+    = f.hidden_field :discussion_id, value: discussion.id
   %fieldset.actions
     = f.submit "Save"
 

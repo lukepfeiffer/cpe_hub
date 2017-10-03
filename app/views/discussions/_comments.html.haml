@@ -9,6 +9,8 @@
     %p.comment-detail
       - if current_user.present?
         %a.create_reply Create reply
-      = "View replies (#{comment.comments.count})"
+      %span.view_replies= "View replies (#{comment.comments.count})"
     - if current_user.present?
-      .hidden= render "reply_form"
+      .hidden-form= render "reply_form", comment: comment
+      .replies
+        = render partial: "comments", collection: get_replies(comment), as: :comment

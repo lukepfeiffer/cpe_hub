@@ -60,6 +60,13 @@
       color: $comment-detail-color;
       font-size: 0.9em;
       font-style: italic;
+
+      .create_reply{
+        &:hover{
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
     }
   }
 }

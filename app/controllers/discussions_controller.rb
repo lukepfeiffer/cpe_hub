@@ -5,12 +5,13 @@ class DiscussionsController < ApplicationController
   end
 
   expose :comments do
-    discussion.comments
+    discussion.comments.where(comment_id: nil).order("created_at DESC")
   end
 
   expose :discussions do
     Discussion.all
   end
+
   expose :courses do
     Course.all
   end
