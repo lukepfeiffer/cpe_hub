@@ -1,6 +1,6 @@
 %header.navigation{:role => "banner"}
   .navigation-wrapper
-    %a.logo{:href => "javascript:void(0)"}
+    %a.logo{href: root_path}
       %img{:alt => "Logo Image", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png"}/
     %a#js-mobile-menu.navigation-menu-button{:href => "javascript:void(0)"} MENU
     %nav{:role => "navigation"}
@@ -33,6 +33,10 @@
                 Professors
                 %i.fa.fa-user-secret
 
+        %li.nav-link
+          = link_to faqs_path do
+            FAQ
+            %i.fa.fa-question-circle
         - if current_user.present?
           %li#js-navigation-more.nav-link.more
             %a{href: "javascript:void(0)"} Actions
@@ -53,10 +57,6 @@
             = link_to log_in_path do
               Sign In
               %i.fa.fa-sign-in
-        %li.nav-link
-          = link_to faqs_path do
-            FAQ
-            %i.fa.fa-question-circle
     .navigation-tools
       .search-bar
         %form{:role => "search"}
