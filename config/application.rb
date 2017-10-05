@@ -45,5 +45,7 @@ module CpeHub
     }
 
     config.active_record.raise_in_transactional_callbacks = true
+    config.filestack_rails.api_key = ENV["FILESTACK_API_KEY"]
+
   end
 end

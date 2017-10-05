@@ -17,6 +17,13 @@
   clear: both;
 }
 
+.filepicker{
+  background-color: $green;
+  &:hover{
+    background-color: darken($green, 5%);
+  }
+}
+
 input[type=submit]{
   margin-top: 1em;
 }

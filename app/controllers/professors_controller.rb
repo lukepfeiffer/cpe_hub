@@ -20,6 +20,21 @@ class ProfessorsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    professor = Professor.find(params[:id])
+    professor.update(professor_params)
+    if professor.save
+      flash[:success] = "Professor was updated successfully!"
+      redirect_to professor_path(professor.id)
+    else
+      flash[:danger] = "Something went wrong..."
+      render :edit
+    end
+  end
+
   private
   def professor_params
     params.require(:professor).permit(
@@ -27,6 +42,7 @@ class ProfessorsController < ApplicationController
       :last_name,
       :title,
       :description,
+      :filepicker_url,
       :rating
     )
   end

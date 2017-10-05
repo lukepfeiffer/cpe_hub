@@ -5,7 +5,10 @@
     - professors.each do |professor|
       .professor
         %span.prof-image
-          = link_to( image_tag("https://mil.ufl.edu/ems/SchwartzE.jpg"), professor_path(professor.id) )
+          - if professor.filepicker_url.present?
+            = link_to( filestack_image(professor.filepicker_url), professor_path(professor.id) )
+          - else
+            = link_to( image_tag("default.jpg"), professor_path(professor.id) )
         %span.prof-details
           = link_to professor.full_name, professor_path(professor.id), class: "full-name"
           - professor.courses.first(5).each do |course|

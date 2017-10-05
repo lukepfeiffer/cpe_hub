@@ -23,9 +23,14 @@
         = label_tag :rating
         = f.number_field :rating, within: 1..10
 
+
     %br.clear_both
     = f.label :description
     = f.trix_editor :description, id: "professor_editor"
+
+    = f.label :headshot
+    = f.filestack_field :filepicker_url, "Select an image", class: "filepicker"
+
 
   %fieldset.actions
     = f.submit "Save"

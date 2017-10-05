@@ -20,4 +20,8 @@
         - course.professors.each do |professor|
           .professor
             %p.name= link_to professor.full_name, professor_path(professor.id)
-            %p.headshot= image_tag("https://mil.ufl.edu/ems/SchwartzE.jpg")
+            %p.headshot
+              - if professor.filepicker_url.present?
+                = filestack_image(professor.filepicker_url)
+              - else
+                = image_tag("default.jpg")
