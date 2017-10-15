@@ -20,6 +20,14 @@
       }
     }
   }
+
+  .view-more{
+    a{
+      color: $blue;
+      margin-left: 10px;
+    }
+  }
+
   .panel::-webkit-scrollbar{
     display: none;
   }

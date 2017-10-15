@@ -7,6 +7,7 @@
         .home-discussion
           %p.question= link_to discussion.question.truncate(100), discussion_path(discussion.id)
           %p.details= "by #{discussion.user.username} #{distance_of_time_in_words(discussion.updated_at, DateTime.now)} ago"
+      .view-more= link_to "View all", discussions_path
   .panel.primary
     .home-courses
       .panel-header
@@ -27,3 +28,4 @@
               .image= link_to( filestack_image(professor.filepicker_url), professor_path(professor.id) )
             - else
               .image= link_to( image_tag("default.jpg"), professor_path(professor.id) )
+      .view-more= link_to "View all", professors_path
