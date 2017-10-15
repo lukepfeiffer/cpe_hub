@@ -27,3 +27,5 @@
               %div
                 = "asked #{distance_of_time_in_words(disc.created_at, DateTime.now)} ago by"
                 %span.username= disc.user.username
+
+  .page-select= will_paginate discussions

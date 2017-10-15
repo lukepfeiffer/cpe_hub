@@ -14,3 +14,5 @@
           - professor.courses.first(5).each do |course|
             %span.prof-course-codes= link_to course.course_code, course_path(course.id)
         %br.clear_both
+
+  .page-select= will_paginate professors

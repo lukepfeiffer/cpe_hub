@@ -2,11 +2,14 @@ class ProfessorsController < ApplicationController
   expose :professor
   expose :professors do
     if params[:search].present?
-      SearchHelper.search(Professor, params[:search], "last_name")
+      professors = SearchHelper.search(Professor, params[:search], "last_name")
     else
-      Professor.all
+      professors = Professor.all
     end
+
+    professors.paginate(page: params[:page], per_page: 9).order("created_at DESC")
   end
+
   expose :courses do
     Course.all
   end

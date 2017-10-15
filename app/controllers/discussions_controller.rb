@@ -14,6 +14,8 @@ class DiscussionsController < ApplicationController
     else
       discussions = Discussion.all
     end
+
+    discussions.paginate(page: params[:page], per_page: 15).order("created_at DESC")
   end
 
   expose :courses do
