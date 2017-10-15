@@ -1,7 +1,11 @@
 class ProfessorsController < ApplicationController
   expose :professor
   expose :professors do
-    Professor.all
+    if params[:search].present?
+      SearchHelper.search(Professor, params[:search], "last_name")
+    else
+      Professor.all
+    end
   end
   expose :courses do
     Course.all

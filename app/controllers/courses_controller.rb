@@ -1,5 +1,8 @@
 class CoursesController < ApplicationController
   expose :course
+  expose :courses do
+    SearchHelper.search(Course, params[:search], "name")
+  end
 
   expose :course_letters do
     if params[:type] == "tech_elective"
@@ -22,8 +25,6 @@ class CoursesController < ApplicationController
       Course.filter_by_code("Breadth Elective")
     elsif params[:type] == "core"
       Course.filter_by_code("Core")
-    else
-      Course.all
     end
   end
   expose :course_types do

@@ -20,6 +20,17 @@
             %p= course.desc_preview
             .detail
               %i= "Last updated #{course.updated_at.strftime("%B %d, %Y")}"
+  - elsif params[:search].present?
+    .grid-items-lines.courses
+      - courses.each do |course|
+        = link_to course_path(course.id), class: "grid-item" do
+          %h1= course.course_code
+          .subdetail
+            .name= course.name
+            = "Difficulty: #{course.difficulty}"
+          %p= course.desc_preview
+          .detail
+            %i= "Last updated #{course.updated_at.strftime("%B %d, %Y")}"
   - else
     %h1 Sorry, invalid parameters!
     = image_tag "https://developers.google.com/maps/documentation/streetview/images/error-image-generic.png"

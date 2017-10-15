@@ -59,7 +59,19 @@
               %i.fa.fa-sign-in
     .navigation-tools
       .search-bar
-        %form{:role => "search"}
-          %input{:placeholder => "Enter Search", :type => "search"}/
-          %button{:type => "submit"}
-            %i.fa.fa-search
+        - if params[:controller] == "discussions"
+          %form{role: "search", actions: '/discussions', method: :get}
+            %input{type: "search", placeholder: "Search Discussions", name: 'search'}
+            %button{:type => "submit"}
+              %i.fa.fa-search
+        - elsif params[:controller] == "professors"
+          %form{role: "search", actions: '/professors', method: :get}
+            %input{type: "search", placeholder: "Search by last name", name: 'search'}
+            %button{:type => "submit"}
+              %i.fa.fa-search
+        - elsif params[:controller] == "courses"
+          %form{role: "search", actions: '/courses', method: :get}
+            %input{type: "search", placeholder: "Search Course Name", name: 'search'}
+            = hidden_field_tag :type, "All"
+            %button{:type => "submit"}
+              %i.fa.fa-search

@@ -9,7 +9,11 @@ class DiscussionsController < ApplicationController
   end
 
   expose :discussions do
-    Discussion.all
+    if params[:search].present?
+      discussions = SearchHelper.search(Discussion, params[:search], "question")
+    else
+      discussions = Discussion.all
+    end
   end
 
   expose :courses do
