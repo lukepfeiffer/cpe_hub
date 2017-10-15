@@ -1,1 +1,29 @@
-%h1 Home
+.highlights
+  .panel.danger
+    .panel-header
+      %h1 Discussions
+    .panel-body
+      - discussions.each do |discussion|
+        .home-discussion
+          %p.question= link_to discussion.question.truncate(100), discussion_path(discussion.id)
+          %p.details= "by #{discussion.user.username} #{distance_of_time_in_words(discussion.updated_at, DateTime.now)} ago"
+  .panel.primary
+    .home-courses
+      .panel-header
+        %h1 Course Updates
+      .panel-body
+        - courses.each do |course|
+          .home-course
+            %p= link_to "#{course.name} (#{course.course_code})", course_path(course.id)
+  .panel.success
+    .home-professors
+      .panel-header
+        %h1 Professor Updates
+      .panel-body
+        - professors.each do |professor|
+          .home-professor
+            %p= link_to professor.full_name, professor_path(professor.id)
+            - if professor.filepicker_url.present?
+              .image= link_to( filestack_image(professor.filepicker_url), professor_path(professor.id) )
+            - else
+              .image= link_to( image_tag("default.jpg"), professor_path(professor.id) )

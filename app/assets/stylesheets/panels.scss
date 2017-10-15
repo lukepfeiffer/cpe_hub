@@ -64,10 +64,26 @@
 }
 
 .panel.warning{
-  border: 1px solid #fcf8e3;
+  border: 1px solid #E67E22;
   .panel-header{
-    color: #8a6d3b;
-    background-color: #faebcc;
-    border-bottom-color: #faebcc;
+    color: #fff;
+    background-color: #E67E22;
+    border-bottom-color: #E67E22;
+  }
+}
+
+.panel.success{
+  border: 1px solid #DFF0D8;
+  .panel-header{
+    background-color: #DFF0D8;
+    color: #3C763D;
+  }
+}
+
+.panel.danger{
+  border: 1px solid #F2DEDE;
+  .panel-header{
+    background-color: #F2DEDE;
+    color: #AE4D4B;
   }
 }

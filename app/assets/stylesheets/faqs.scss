@@ -33,8 +33,9 @@
   .faq-image {
     padding-right: $faq-gutter;
 
-    > img {
-      background: $faq-background;
+    > i {
+      text-align: center;
+      background: lighten($faq-background, 10%);
       border-radius: $base-border-radius;
       display: block;
       height: auto;

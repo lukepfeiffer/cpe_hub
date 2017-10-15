@@ -1,0 +1,54 @@
+.highlights{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: flex-start;
+  overflow: hidden;
+  .panel{
+    width: 30%;
+    margin-right: 20px;
+    height: 80%;
+    overflow-y: scroll;
+    a{
+      color: #2d2d2d;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+  .panel::-webkit-scrollbar{
+    display: none;
+  }
+
+  .home-discussion{
+    .question{
+      margin-bottom: 0;
+    }
+
+    .details{
+      margin-top: 0;
+      font-style: italic;
+      color: #9b9b9b;
+      text-align: right;
+    }
+  }
+
+  .home-professors{
+    p{
+      text-align: center;
+      margin: 1em 0 0 0;
+    }
+
+    .image{
+      text-align: center;
+    }
+
+    img{
+      width: 50%;
+    }
+  }
+}
