@@ -5,6 +5,10 @@ class AdminsController < ApplicationController
     Faq.limit(5).order('id desc')
   end
 
+  expose :professors do
+    Professor.limit(5).order('id desc')
+  end
+
   expose :courses do
     Course.limit(5).order('id desc')
   end

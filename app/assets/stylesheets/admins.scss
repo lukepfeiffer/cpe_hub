@@ -1,0 +1,40 @@
+$button-red: #ca3535;
+$button-blue: #269CE9;
+$button-green: #57a957;
+
+.admin-actions{
+  margin: 15px;
+  text-align: center;
+  a{
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 3px;
+    margin: 0 5px;
+    text-shadow: 0 1px 0 rgba(0,0,0,.2);
+  }
+
+  .faq-link{
+    background-color: $button-red;
+    border: 1px solid darken($button-red, 20%);
+    &:hover{
+      background-color: darken($button-red, 5%);
+    }
+  }
+
+  .course-link{
+    background-color: $button-green;
+    border: 1px solid darken($button-green, 20%);
+    &:hover{
+      background-color: darken($button-green, 5%);
+    }
+  }
+
+  .prof-link{
+    background-color: $button-blue;
+    border: 1px solid darken($button-blue, 20%);
+    &:hover{
+      background-color: darken($button-blue, 5%);
+    }
+  }
+}
